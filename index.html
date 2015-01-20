@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prize giver</title>
+</head>
+<body>
+<h1 class="slot-machine" onclick="stopSpin()">WebStorm</h1>
+<script>
+    var slotMachineEl = document.querySelectorAll('.slot-machine');
+    var prizes = ['WebStorm', 'water bottle', 'coffee mug', 'notebook', 'pen'];
+    var slotMachine = setInterval(function() {
+        slotMachineEl[0].innerText = prizes[0];
+        var swap = prizes.pop();
+        prizes.unshift(swap);
+    }, 50);
+    var stopSpin = function() {
+        clearInterval(slotMachine);
+        prizes.shift();
+    };
+</script>
+</body>
+</html>
